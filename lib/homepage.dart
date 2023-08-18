@@ -5,14 +5,25 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key, String? email}) : super(key: key);
+  final emailId;
+  HomePage({required this.emailId});
+
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print(widget.emailId);
+  }
+
+  @override
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -31,17 +42,17 @@ class _HomePageState extends State<HomePage> {
                   CircleAvatar(
                     radius: 25,
                     backgroundColor: Colors.blueGrey.shade300,
-                    child: Text('D',style: TextStyle(fontSize: 28,fontWeight: FontWeight.bold,color: Colors.white),),
+                    child: const Text('D',style: TextStyle(fontSize: 28,fontWeight: FontWeight.bold,color: Colors.white),),
                   ),
-                  SizedBox(width: 20,),
+                  const SizedBox(width: 20,),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Duy Truong Haang,',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white),),
-                      Text('Welcome back !',style: TextStyle(fontSize: 16,color: Colors.white),)
+                      Text(widget.emailId,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white),),
+                      const Text('Welcome back !',style: TextStyle(fontSize: 16,color: Colors.white),)
                     ],
                   ),
-                  SizedBox(width: 20,),
+                  const SizedBox(width: 20,),
                   Image.asset('images/sparkles.png',
                     width: 40,
                     height: 40,
@@ -49,11 +60,11 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            SizedBox(height: 29,),
+            const SizedBox(height: 29,),
             Expanded(
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(topLeft: Radius.circular(33),topRight: Radius.circular(33))
                 ),
@@ -64,11 +75,11 @@ class _HomePageState extends State<HomePage> {
                       Row(
                         children: [
                           Icon(Icons.home,color: Colors.blueGrey.shade800,size: 36,),
-                          SizedBox(width: 13,),
+                          const SizedBox(width: 13,),
                           Text('Home Page',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500,color: Colors.blueGrey[800]),)
                         ],
                       ),
-                      SizedBox(height: 13,),
+                      const SizedBox(height: 13,),
                       Container(
                         width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.height*.16,
@@ -84,14 +95,14 @@ class _HomePageState extends State<HomePage> {
                                 width: 100,
                                 height: 100,
                               ),
-                              SizedBox(width: 8,),
+                              const SizedBox(width: 8,),
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text('Play Game',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.yellow[700])),
-                                  SizedBox(height: 3,),
-                                  Text('Create room and join \nroom',style: TextStyle(fontSize: 15,fontWeight: FontWeight.w500,color: Colors.white))
+                                  const SizedBox(height: 3,),
+                                  const Text('Create room and join \nroom',style: TextStyle(fontSize: 15,fontWeight: FontWeight.w500,color: Colors.white))
                                 ],
                               )
                             ],
@@ -105,9 +116,9 @@ class _HomePageState extends State<HomePage> {
                             Expanded(
                                 child: Divider(color: Colors.blueGrey[300],thickness: 2,)
                             ),
-                            SizedBox(width: 17,),
+                            const SizedBox(width: 17,),
                             Text('Some other features',style: TextStyle(fontSize: 15,fontWeight: FontWeight.w500,color: Colors.blueGrey[300])),
-                            SizedBox(width: 17,),
+                            const SizedBox(width: 17,),
                             Expanded(
                                 child: Divider(color: Colors.blueGrey[300],thickness: 2,)
                             ),
@@ -132,9 +143,8 @@ class _HomePageState extends State<HomePage> {
                                   children: [
                                     Image.asset('images/guide.png',width: 60,height: 60,),
                                     //SizedBox(height: 3,),
-                                    Text('Guide',style: TextStyle(fontSize: 23,color: Colors.white,fontWeight: FontWeight.bold),),
-                                    //SizedBox(height: 5,),
-                                    Text('Rule and how to \nplay',style: TextStyle(fontSize: 12,color: Colors.white),)
+                                    const Text('Guide',style: TextStyle(fontSize: 23,color: Colors.white,fontWeight: FontWeight.bold),),
+                                    const Text('Rule and how to \nplay',style: TextStyle(fontSize: 12,color: Colors.white),)
                                   ],
                                 ),
                               ),

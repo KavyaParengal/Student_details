@@ -24,13 +24,15 @@ class AuthController extends GetxController{
       Get.offAll(()=>LoginPage());
     }
     else{
-      Get.offAll(()=>HomePage(email:user.email));
+      Get.offAll(()=>HomePage(emailId:user.email));
+      print('Email= ${user.email}');
     }
   }
 
   void register(String email,password) async {
     try{
       await auth.createUserWithEmailAndPassword(email: email, password: password);
+      Get.offAll(()=>LoginPage());
     }
     catch(e){
       Get.snackbar("About user", "User message", backgroundColor: Colors.red,
